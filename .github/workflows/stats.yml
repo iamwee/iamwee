@@ -9,37 +9,58 @@ permissions:
   contents: write
 
 jobs:
-  build-stats:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      # ---------- WakaTime Weekly Text ----------
+      # ---------- Install jq ----------
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      # ---------- Generate GitHub Stats SVG ----------
+      - name: Generate GitHub stats
+        run: |
+          mkdir -p assets
+
+          REPOS=$(curl -s https://api.github.com/users/${{ github.repository_owner }}/repos | jq length)
+
+          echo "<svg xmlns='http://www.w3.org/2000/svg' width='500' height='140'>
+          <rect width='100%' height='100%' fill='#0d1117'/>
+          <text x='20' y='40' fill='white' font-size='22'>GitHub Stats</text>
+          <text x='20' y='80' fill='white'>User: ${{ github.repository_owner }}</text>
+          <text x='20' y='110' fill='white'>Public Repositories: $REPOS</text>
+          </svg>" > assets/github-stats.svg
+
+      # ---------- Generate WakaTime Stats SVG ----------
+      - name: Generate WakaTime stats
+        env:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+        run: |
+          DATA=$(curl -s https://wakatime.com/api/v1/users/current/stats/last_7_days \
+            -H "Authorization: Basic $(echo -n $WAKATIME_API_KEY | base64)")
+
+          TOTAL=$(echo $DATA | jq -r '.data.human_readable_total')
+
+          echo "<svg xmlns='http://www.w3.org/2000/svg' width='500' height='140'>
+          <rect width='100%' height='100%' fill='#0d1117'/>
+          <text x='20' y='40' fill='white' font-size='22'>WakaTime (Last 7 Days)</text>
+          <text x='20' y='80' fill='white'>Coding Time: $TOTAL</text>
+          <text x='20' y='110' fill='white'>Auto-updated via GitHub Actions</text>
+          </svg>" > assets/wakatime-stats.svg
+
+      # ---------- Update Weekly Text Section ----------
       - name: Update WakaTime README section
         uses: athul/waka-readme@master
         with:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
 
-      # ---------- Generate GitHub Stats SVG ----------
-      - name: Generate GitHub stats SVG
-        run: |
-          mkdir -p assets
-          curl -o assets/github-stats.svg \
-          https://gh-stats-gen.vercel.app/api?username=${{ github.repository_owner }}
-
-      # ---------- Generate WakaTime Stats SVG ----------
-      - name: Generate WakaTime stats SVG
-        run: |
-          curl -o assets/wakatime-stats.svg \
-          https://gh-stats-gen.vercel.app/api/wakatime?username=iamwee
-
-      # ---------- Commit changes ----------
+      # ---------- Commit Changes ----------
       - name: Commit & push
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config user.name "github-actions"
+          git config user.email "action@github.com"
           git add assets/*.svg README.md
           git commit -m "Update dev stats" || echo "No changes"
           git push
