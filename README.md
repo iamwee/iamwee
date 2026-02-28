@@ -15,7 +15,7 @@ Bangkok, Thailand 🇹🇭
 
 ## ⏱️ WakaTime Stats
 
-[![WakaTime Stats](https://github-readme-stats.vercel.app/api/wakatime?username=iamwee)](https://wakatime.com/@iamwee)
+![WakaTime](./assets/wakatime-stats.svg)
 
 ---
 
@@ -56,7 +56,7 @@ Markdown         54 mins               █▒░░░░░░░░░░░�
 
 ## 📈 GitHub Stats
 
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=iamwee&show_icons=true&theme=default)
+![GitHub Stats](./assets/github-stats.svg)
 
 ---
 
