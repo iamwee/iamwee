@@ -1,5 +1,6 @@
-The page could not be found
-
-NOT_FOUND
-
-cle1::646zf-1772271692680-7d12f46d1b45
+<svg xmlns='http://www.w3.org/2000/svg' width='500' height='140'>
+<rect width='100%' height='100%' fill='#0d1117'/>
+<text x='20' y='40' fill='white' font-size='22'>WakaTime (Last 7 Days)</text>
+<text x='20' y='80' fill='white'>Coding Time: 13 hrs 47 mins</text>
+<text x='20' y='110' fill='white'>Auto-updated via GitHub Actions</text>
+</svg>
