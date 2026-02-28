@@ -1,0 +1,45 @@
+name: Update Dev Stats
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-stats:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # ---------- WakaTime Weekly Text ----------
+      - name: Update WakaTime README section
+        uses: athul/waka-readme@master
+        with:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+
+      # ---------- Generate GitHub Stats SVG ----------
+      - name: Generate GitHub stats SVG
+        run: |
+          mkdir -p assets
+          curl -o assets/github-stats.svg \
+          https://gh-stats-gen.vercel.app/api?username=${{ github.repository_owner }}
+
+      # ---------- Generate WakaTime Stats SVG ----------
+      - name: Generate WakaTime stats SVG
+        run: |
+          curl -o assets/wakatime-stats.svg \
+          https://gh-stats-gen.vercel.app/api/wakatime?username=iamwee
+
+      # ---------- Commit changes ----------
+      - name: Commit & push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add assets/*.svg README.md
+          git commit -m "Update dev stats" || echo "No changes"
+          git push
