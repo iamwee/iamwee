@@ -57,8 +57,3 @@ Gradle           21 mins               ▒░░░░░░░░░░░░�
 ## 📈 GitHub Stats
 
 ![GitHub Stats](./assets/github-stats.svg)
-
----
-
-## 📫 Connect With Me
-- LinkedIn: (https://www.linkedin.com/in/iamwee/)
