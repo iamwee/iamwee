@@ -24,7 +24,11 @@ Bangkok, Thailand 🇹🇭
 <!--START_SECTION:waka-->
 
 ```txt
-Other   11 mins               █████████████████████████   100.00 %
+Other      4 hrs 31 mins         █████████████████▒░░░░░░░   69.03 %
+Swift      1 hr 22 mins          █████▒░░░░░░░░░░░░░░░░░░░   21.00 %
+Kotlin     27 mins               █▓░░░░░░░░░░░░░░░░░░░░░░░   07.08 %
+Markdown   10 mins               ▓░░░░░░░░░░░░░░░░░░░░░░░░   02.74 %
+XML        0 secs                ░░░░░░░░░░░░░░░░░░░░░░░░░   00.16 %
 ```
 
 <!--END_SECTION:waka-->
