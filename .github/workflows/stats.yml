@@ -63,4 +63,5 @@ jobs:
           git config user.email "action@github.com"
           git add assets/*.svg README.md
           git commit -m "Update dev stats" || echo "No changes"
+          git pull --rebase origin main
           git push
