@@ -24,11 +24,11 @@ Bangkok, Thailand 🇹🇭
 <!--START_SECTION:waka-->
 
 ```txt
-Kotlin                 5 hrs                 ███████▓░░░░░░░░░░░░░░░░░   30.65 %
-Swift                  2 hrs 51 mins         ████▒░░░░░░░░░░░░░░░░░░░░   17.43 %
-Other                  2 hrs 48 mins         ████▒░░░░░░░░░░░░░░░░░░░░   17.17 %
-Markdown               2 hrs 13 mins         ███▒░░░░░░░░░░░░░░░░░░░░░   13.63 %
-Groovy                 1 hr 19 mins          ██░░░░░░░░░░░░░░░░░░░░░░░   08.14 %
+Kotlin                 6 hrs 25 mins         █████████▒░░░░░░░░░░░░░░░   37.63 %
+Swift                  2 hrs 29 mins         ███▓░░░░░░░░░░░░░░░░░░░░░   14.63 %
+Markdown               2 hrs 29 mins         ███▓░░░░░░░░░░░░░░░░░░░░░   14.61 %
+Other                  1 hr 50 mins          ██▓░░░░░░░░░░░░░░░░░░░░░░   10.80 %
+Groovy                 1 hr 27 mins          ██░░░░░░░░░░░░░░░░░░░░░░░   08.52 %
 ```
 
 <!--END_SECTION:waka-->
