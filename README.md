@@ -24,11 +24,7 @@ Bangkok, Thailand 🇹🇭
 <!--START_SECTION:waka-->
 
 ```txt
-Kotlin       2 hrs 36 mins         ███████████████▒░░░░░░░░░   61.10 %
-Dart         43 mins               ████▒░░░░░░░░░░░░░░░░░░░░   16.81 %
-JSON         17 mins               █▓░░░░░░░░░░░░░░░░░░░░░░░   06.87 %
-Markdown     13 mins               █▒░░░░░░░░░░░░░░░░░░░░░░░   05.44 %
-XML          12 mins               █▒░░░░░░░░░░░░░░░░░░░░░░░   04.94 %
+No activity tracked
 ```
 
 <!--END_SECTION:waka-->
