@@ -24,7 +24,11 @@ Bangkok, Thailand 🇹🇭
 <!--START_SECTION:waka-->
 
 ```txt
-No activity tracked
+Markdown    3 hrs 53 mins         ████████████████░░░░░░░░░   63.85 %
+Text        1 hr 2 mins           ████▒░░░░░░░░░░░░░░░░░░░░   17.17 %
+INI         20 mins               █▒░░░░░░░░░░░░░░░░░░░░░░░   05.50 %
+Dart        10 mins               ▓░░░░░░░░░░░░░░░░░░░░░░░░   02.99 %
+CocoaPods   10 mins               ▓░░░░░░░░░░░░░░░░░░░░░░░░   02.81 %
 ```
 
 <!--END_SECTION:waka-->
