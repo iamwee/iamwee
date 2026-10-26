@@ -1,18 +1,9 @@
-# 👋 Hi there
-
 <img src="./assets/hie.gif" alt="Hi there" width="100%" />
-
-Mobile Developer | iOS • Android • Flutter  
-Bangkok, Thailand 🇹🇭  
-
----
 
 ## 🚀 About Me
 - 📱 iOS (UIKit, SwiftUI, Combine)
 - 🤖 Android (Kotlin, Jetpack Compose, Coroutines)
 - 🐦 Flutter (Riverpod)
-- 🧱 Modular Architecture
-
 ---
 
 ## ⏱️ WakaTime Stats
