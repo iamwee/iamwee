@@ -1,5 +1,7 @@
 # 👋 Hi there
 
+<img src="./assets/hie.gif" alt="Hi there" width="100%" />
+
 Mobile Developer | iOS • Android • Flutter  
 Bangkok, Thailand 🇹🇭  
 
