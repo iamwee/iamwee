@@ -21,10 +21,12 @@ jobs:
 
       # ---------- Generate GitHub Stats SVG ----------
       - name: Generate GitHub stats
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           mkdir -p assets
 
-          REPOS=$(curl -s https://api.github.com/users/${{ github.repository_owner }}/repos | jq length)
+          REPOS=$(gh api users/${{ github.repository_owner }} --jq .public_repos)
 
           echo "<svg xmlns='http://www.w3.org/2000/svg' width='500' height='140'>
           <rect width='100%' height='100%' fill='#0d1117'/>
