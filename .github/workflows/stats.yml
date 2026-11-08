@@ -38,10 +38,15 @@ jobs:
         env:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
         run: |
-          DATA=$(curl -s https://wakatime.com/api/v1/users/current/stats/last_7_days \
-            -H "Authorization: Basic $(echo -n $WAKATIME_API_KEY | base64)")
+          DATA=$(curl -sf https://wakatime.com/api/v1/users/current/stats/last_7_days \
+            -H "Authorization: Basic $(echo -n $WAKATIME_API_KEY | base64)") \
+            || { echo "::error::WakaTime API request failed (check WAKATIME_API_KEY)"; exit 1; }
 
-          TOTAL=$(echo $DATA | jq -r '.data.human_readable_total')
+          TOTAL=$(echo "$DATA" | jq -r '.data.human_readable_total // empty')
+          if [ -z "$TOTAL" ]; then
+            echo "::error::WakaTime response had no human_readable_total"
+            exit 1
+          fi
 
           echo "<svg xmlns='http://www.w3.org/2000/svg' width='500' height='140'>
           <rect width='100%' height='100%' fill='#0d1117'/>
